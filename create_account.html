@@ -11,69 +11,65 @@
 
     <title>Document</title>
     <style>
-        body{
-            margin: 0;
-            font-family: 'Quicksand', sans-serif;
-        }
-
         :root {
-            --white: #FFFFFF;
+            --white: #ffffff;
             --black: #000000;
-            --very-light-pink: #C7C7C7;
-            --text-input-field: #F7F7F7;
-            --hospital-green: #ACD9B2;
+            --very-light-pink: #c7c7c7;
+            --text-input-field: #f7f7f7;
+            --hospital-green: #acd9b2;
             --sm: 14px;
             --md: 16px;
             --lg: 18px;
         }
 
-        .login{
+        body {
+            margin: 0;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        .login {
             width: 100%;
             height: 100vh;
             display: grid;
             place-items: center;
         }
-        
-        .form-container{
+
+        .form-container {
             display: grid;
             grid-template-rows: auto 1fr auto;
             width: 300px;
         }
 
-        .logo{
+        .logo {
             width: 150px;
             margin-bottom: 48px;
             justify-self: center;
             display: none;
         }
 
-        .title{
+        .title {
             font-size: var(--lg);
-            margin-bottom: 12px;
-            text-align: center;
+            margin-bottom: 36px;
+            text-align: start;
         }
 
-        .subtitle{
-            color: var(--very-light-pink);
-            font-size: var(--md);
-            font-weight: 300px;
-            margin-top: 0;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .form{
+        .form {
             display: flex;
             flex-direction: column;
         }
 
-        .label{
+        .form div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
             font-size: var(--sm);
             font-weight: bold;
             margin-bottom: 4px;
         }
 
-        .input{
+        .input {
             background-color: var(--text-input-field);
             border: none;
             border-radius: 8px;
@@ -83,7 +79,13 @@
             margin-bottom: 12px;
         }
 
-        .primary-button{
+        .input-name,
+        .input-email,
+        .input-password {
+            margin-bottom: 22px;
+        }
+
+        .primary-button {
             background-color: var(--hospital-green);
             border-radius: 8px;
             border: none;
@@ -95,35 +97,44 @@
             height: 50px;
         }
 
-        .login-button{
+        .login-button {
             margin-top: 14px;
             margin-bottom: 30px;
         }
 
-        @media (max-width: 640px){
-            .logo{
-                display: block;
+        @media (max-width: 640px) {
+            .form-container {
+                height: 100%;
+            }
+
+            .form {
+                height: 100%;
+                justify-content: space-between;
             }
         }
-
     </style>
 </head>
 
 <body>
     <div class="login">
         <div class="form-container">
-            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-            <h1 class="title">Create a new password</h1>
-            <p class="subtitle">Enter a new password for your account</p>
+            <h1 class="title">My account</h1>
+
 
             <form action="/" class="form">
-                <label for="password" class="label">Password</label>
-                <input type="password" id="password" placeholder="*********" class="input input-password">
-                
-                <label for="new-password" class="label">Password</label>
-                <input type="password" id="new-password" placeholder="*********" class="input input-password">
+                <div>
+                    <label for="name" class="label">Name</label>
+                    <input type="text" id="name" placeholder="Name" class="input input-name">
 
-                <input type="submit" value="Confirm" class="primary-button login-button">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" id="email" placeholder="example@correo.com" class="input input-email">
+
+
+                    <label for="password" class="label">Password</label>
+                    <input type="password" id="password" placeholder="*********" class="input input-password">
+                </div>
+                <input type="submit" value="Create" class="primary-button login-button">
+
             </form>
         </div>
     </div>
